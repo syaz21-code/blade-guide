@@ -1,4 +1,4 @@
-import type { MotorcycleHotspot, SpecificationGroup } from "@/content/general-information/types";
+import type { SpecificationGroup } from "@/content/general-information/types";
 import { manualSource } from "@/content/general-information/types";
 
 export const specificationGroups: SpecificationGroup[] = [
@@ -76,11 +76,4 @@ export const specificationGroups: SpecificationGroup[] = [
       { title: "Front fork oil", description: "One-side front fork oil quantity.", specification: "400 ± 2.5 cc", sourceDocument: manualSource, manualPage: "1-9" },
     ],
   },
-];
-
-export const motorcycleHotspots: MotorcycleHotspot[] = [
-  { id: "steering", label: "Steering", x: 71, y: 28 },
-  { id: "front-brake", label: "Front brake", x: 82, y: 73 },
-  { id: "engine", label: "Engine", x: 48, y: 57 },
-  { id: "rear-brake", label: "Rear brake", x: 22, y: 73 },
 ];

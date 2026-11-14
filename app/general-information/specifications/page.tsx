@@ -1,7 +1,7 @@
 import { MotorcycleOverview } from "@/components/general-information/motorcycle-overview";
 import { ModulePageShell } from "@/components/general-information/module-page-shell";
 import { SpecificationTable } from "@/components/general-information/specification-table";
-import { motorcycleHotspots, specificationGroups } from "@/content/general-information/specifications";
+import { specificationGroups } from "@/content/general-information/specifications";
 
 export default function SpecificationsPage() {
   return (
@@ -12,7 +12,7 @@ export default function SpecificationsPage() {
       title="Specifications"
     >
       <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10">
-        <MotorcycleOverview hotspots={motorcycleHotspots} />
+        <MotorcycleOverview />
 
         <section aria-label="Specification reference" className="py-2">
           {specificationGroups.map((group) => (

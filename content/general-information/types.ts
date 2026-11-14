@@ -24,11 +24,4 @@ export type FluidRecommendation = SourceBoundEntry & {
   kind: "manufacturer-recommendation" | "handling-precaution" | "general-information";
 };
 
-export type MotorcycleHotspot = {
-  id: "engine" | "front-brake" | "rear-brake" | "steering";
-  label: string;
-  x: number;
-  y: number;
-};
-
 export const manualSource = "HYOSUNG Service Manual";
