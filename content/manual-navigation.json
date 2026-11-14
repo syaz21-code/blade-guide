@@ -1,0 +1,99 @@
+{
+  "manual": {
+    "title": "Blade 250 Digital Service Guide",
+    "editionLabel": "Local-first reference workspace",
+    "sourcePolicy": "Technical facts, dimensions, intervals, and procedures are added only after they are verified against a source manual page."
+  },
+  "navigation": [
+    {
+      "label": "Guide",
+      "items": [
+        {
+          "id": "overview",
+          "label": "Overview",
+          "href": "/#overview",
+          "icon": "dashboard"
+        },
+        {
+          "id": "general-information",
+          "label": "General information",
+          "href": "/#general-information",
+          "icon": "book"
+        },
+        {
+          "id": "maintenance",
+          "label": "Maintenance",
+          "href": "/maintenance",
+          "icon": "wrench"
+        }
+      ]
+    }
+  ],
+  "generalInformation": [
+    {
+      "id": "motorcycle-overview",
+      "title": "Motorcycle overview",
+      "description": "Component locations and an interactive vehicle overview will be added from verified source material.",
+      "icon": "dashboard",
+      "sourceReferences": []
+    },
+    {
+      "id": "safety-precautions",
+      "title": "Safety precautions",
+      "description": "Safety guidance will be recorded with its original manual page reference.",
+      "icon": "shield",
+      "sourceReferences": []
+    },
+    {
+      "id": "fuel-and-oil",
+      "title": "Fuel and oil",
+      "description": "Recommendations will appear only after their source pages have been checked.",
+      "icon": "droplet",
+      "sourceReferences": []
+    }
+  ],
+  "maintenanceTopics": [
+    {
+      "id": "engine-oil",
+      "title": "Engine oil",
+      "icon": "droplet",
+      "status": "Source review pending",
+      "sourceReferences": []
+    },
+    {
+      "id": "brakes",
+      "title": "Brakes and brake pads",
+      "icon": "brake",
+      "status": "Source review pending",
+      "sourceReferences": []
+    },
+    {
+      "id": "tyres",
+      "title": "Tyres",
+      "icon": "tyre",
+      "status": "Source review pending",
+      "sourceReferences": []
+    },
+    {
+      "id": "steering",
+      "title": "Steering",
+      "icon": "steering",
+      "status": "Source review pending",
+      "sourceReferences": []
+    },
+    {
+      "id": "lubrication-and-valve-clearance",
+      "title": "Lubrication and valve clearance",
+      "icon": "wrench",
+      "status": "Source review pending",
+      "sourceReferences": []
+    },
+    {
+      "id": "spark-plug",
+      "title": "Spark plug",
+      "icon": "spark",
+      "status": "Source review pending",
+      "sourceReferences": []
+    }
+  ]
+}
