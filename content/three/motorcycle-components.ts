@@ -1,4 +1,5 @@
 export type MotorcycleComponentId =
+  | "frame"
   | "engine"
   | "front-wheel"
   | "rear-wheel"
@@ -27,6 +28,16 @@ export type MotorcycleComponent = {
 };
 
 export const blade250Components: MotorcycleComponent[] = [
+  {
+    id: "frame",
+    label: "Frame and bodywork",
+    description: "A simplified visual grouping of the exterior frame, seat and lighting arrangement, retained for orientation rather than dimensional inspection.",
+    manualReference: "HYOSUNG Service Manual, exterior illustration references: pp. 1-6 to 1-7.",
+    relatedHref: "/general-information/specifications",
+    relatedLabel: "View specifications",
+    camera: { position: [4.15, 2.22, 5.05], target: [-0.1, 1.35, 0] },
+    explodedOffset: [0, 0, -0.45],
+  },
   {
     id: "engine",
     label: "Engine exterior",
