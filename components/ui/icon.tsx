@@ -1,7 +1,7 @@
 import type { GuideIcon } from "@/lib/manual";
 import type { ReactNode } from "react";
 
-type IconName = GuideIcon | "arrow-up-right" | "chevron-right" | "menu" | "search" | "x";
+type IconName = GuideIcon | "alert" | "arrow-up-right" | "chevron-right" | "info" | "menu" | "search" | "x";
 
 type IconProps = {
   name: IconName;
@@ -53,8 +53,20 @@ const iconPaths: Record<IconName, ReactNode> = {
     </>
   ),
   spark: <path d="m14.8 2.5-6.6 9.1h4.1L9.2 21.5l6.6-9.1h-4.1l3.1-9.9Z" />,
+  alert: (
+    <>
+      <path d="M12 3.5 21 20.2H3L12 3.5Z" />
+      <path d="M12 9v4.5M12 17h.01" />
+    </>
+  ),
   "arrow-up-right": <path d="M5 19 19 5M8 5h11v11" />,
   "chevron-right": <path d="m9 18 6-6-6-6" />,
+  info: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 10.5V16M12 7.5h.01" />
+    </>
+  ),
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
   search: (
     <>

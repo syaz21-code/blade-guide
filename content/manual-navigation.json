@@ -32,24 +32,24 @@
   "generalInformation": [
     {
       "id": "motorcycle-overview",
-      "title": "Motorcycle overview",
-      "description": "Component locations and an interactive vehicle overview will be added from verified source material.",
+      "title": "Specifications",
+      "description": "Comet 250 technical reference values, source-linked to original manual pages 1-8 and 1-9.",
       "icon": "dashboard",
-      "sourceReferences": []
+      "sourceReferences": ["HYOSUNG Service Manual, pp. 1-8 to 1-9"]
     },
     {
       "id": "safety-precautions",
       "title": "Safety precautions",
-      "description": "Safety guidance will be recorded with its original manual page reference.",
+      "description": "Service safety signals and precautions from original manual pages 1-1 and 1-2.",
       "icon": "shield",
-      "sourceReferences": []
+      "sourceReferences": ["HYOSUNG Service Manual, pp. 1-1 to 1-2"]
     },
     {
       "id": "fuel-and-oil",
       "title": "Fuel and oil",
-      "description": "Recommendations will appear only after their source pages have been checked.",
+      "description": "Fuel, engine oil, brake fluid, and fork oil recommendations from original manual page 1-4.",
       "icon": "droplet",
-      "sourceReferences": []
+      "sourceReferences": ["HYOSUNG Service Manual, p. 1-4"]
     }
   ],
   "maintenanceTopics": [
@@ -57,43 +57,50 @@
       "id": "engine-oil",
       "title": "Engine oil",
       "icon": "droplet",
-      "status": "Source review pending",
-      "sourceReferences": []
+      "status": "Source linked: pp. 2-9 to 2-11",
+      "sourceReferences": ["HYOSUNG Service Manual, pp. 2-9 to 2-11"]
     },
     {
       "id": "brakes",
       "title": "Brakes and brake pads",
       "icon": "brake",
-      "status": "Source review pending",
-      "sourceReferences": []
+      "status": "Source linked: pp. 2-13 to 2-16",
+      "sourceReferences": ["HYOSUNG Service Manual, pp. 2-13 to 2-16"]
     },
     {
       "id": "tyres",
       "title": "Tyres",
       "icon": "tyre",
-      "status": "Source review pending",
-      "sourceReferences": []
+      "status": "Source linked: p. 2-18",
+      "sourceReferences": ["HYOSUNG Service Manual, p. 2-18"]
     },
     {
       "id": "steering",
       "title": "Steering",
       "icon": "steering",
-      "status": "Source review pending",
-      "sourceReferences": []
+      "status": "Source linked: p. 2-17",
+      "sourceReferences": ["HYOSUNG Service Manual, p. 2-17"]
     },
     {
-      "id": "lubrication-and-valve-clearance",
-      "title": "Lubrication and valve clearance",
+      "id": "lubrication",
+      "title": "Lubrication",
       "icon": "wrench",
-      "status": "Source review pending",
-      "sourceReferences": []
+      "status": "Source linked: p. 2-2",
+      "sourceReferences": ["HYOSUNG Service Manual, p. 2-2"]
+    },
+    {
+      "id": "valve-clearance",
+      "title": "Valve clearance",
+      "icon": "wrench",
+      "status": "Source linked: pp. 2-3 to 2-4",
+      "sourceReferences": ["HYOSUNG Service Manual, pp. 2-3 to 2-4"]
     },
     {
       "id": "spark-plug",
       "title": "Spark plug",
       "icon": "spark",
-      "status": "Source review pending",
-      "sourceReferences": []
+      "status": "Source linked: p. 2-5",
+      "sourceReferences": ["HYOSUNG Service Manual, p. 2-5"]
     }
   ]
 }

@@ -5,9 +5,15 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { Icon } from "@/components/ui/icon";
 import { guideContent } from "@/lib/manual";
 
+const generalInformationRoutes: Record<string, string> = {
+  "motorcycle-overview": "/general-information/specifications",
+  "safety-precautions": "/general-information/safety",
+  "fuel-and-oil": "/general-information/fluids",
+};
+
 export default function Home() {
   return (
-    <div id="top" className="min-h-dvh bg-[#f6f6f4] text-slate-950">
+    <div id="top" className="min-h-dvh bg-[#050505] text-[#f5f5f7]">
       <SiteHeader />
       <main>
         <section aria-labelledby="guide-title" className="mx-auto w-full max-w-[1280px] px-5 pb-16 pt-7 sm:px-8 sm:pb-20 sm:pt-10 lg:px-10 lg:pb-28">
@@ -64,16 +70,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="general-information" aria-labelledby="general-information-title" className="scroll-mt-24 border-y border-slate-200 bg-white py-16 sm:py-20 lg:py-28">
+        <section id="general-information" aria-labelledby="general-information-title" className="scroll-mt-24 border-y border-white/10 bg-[#090909] py-16 sm:py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10">
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d73b23]">General information</p>
-                <h2 id="general-information-title" className="mt-4 max-w-md text-4xl font-semibold tracking-[-0.055em] text-slate-950 sm:text-5xl">Know the system before the service.</h2>
+                <h2 id="general-information-title" className="mt-4 max-w-md text-4xl font-semibold tracking-[-0.055em] text-white sm:text-5xl">Know the system before the service.</h2>
               </div>
               <div className="max-w-xl lg:pt-1">
-                <p className="text-lg leading-8 text-slate-600">The guide begins with the information that gives every future task context. Each section is structured to keep its original source page alongside its final content.</p>
-                <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                <p className="text-lg leading-8 text-white/60">The guide begins with the information that gives every future task context. Each section is structured to keep its original source page alongside its final content.</p>
+                <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/45">
                   <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e13e25]" /> Source title</span>
                   <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e13e25]" /> Page reference</span>
                   <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e13e25]" /> Verification state</span>
@@ -81,25 +87,27 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 md:grid-cols-3">
+            <div className="mt-12 grid gap-3 md:grid-cols-3">
               {guideContent.generalInformation.map((item, index) => (
-                <article className="group bg-white p-6 sm:p-7" key={item.id}>
+                <Link className="group rounded-2xl border border-white/10 bg-white/[0.035] p-6 transition-colors hover:border-white/25 hover:bg-white/[0.06] sm:p-7" href={generalInformationRoutes[item.id] ?? "/#general-information"} key={item.id}>
+                  <article>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold tracking-[0.14em] text-slate-400">0{index + 1}</span>
-                    <span className="grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-slate-800 transition-colors group-hover:bg-[#e13e25] group-hover:text-white">
+                    <span className="text-xs font-semibold tracking-[0.14em] text-white/35">0{index + 1}</span>
+                    <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition-colors group-hover:bg-[#e13e25] group-hover:text-white">
                       <Icon className="h-5 w-5" name={item.icon} />
                     </span>
                   </div>
-                  <h3 className="mt-16 text-xl font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
-                  <p className="mt-7 text-xs font-medium text-slate-400">Source verification in progress</p>
-                </article>
+                  <h3 className="mt-16 text-xl font-semibold tracking-[-0.035em] text-white">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/55">{item.description}</p>
+                  <p className="mt-7 text-xs font-medium text-white/38">{item.sourceReferences[0]}</p>
+                  </article>
+                </Link>
               ))}
             </div>
 
-            <div className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-slate-200 pt-8 sm:flex-row sm:items-center">
-              <p className="max-w-2xl text-sm leading-6 text-slate-500">Technical details are intentionally held back until their manual source pages are recorded. The same standard carries into maintenance.</p>
-              <Link className="inline-flex shrink-0 items-center gap-3 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#e13e25]" href="/maintenance">
+            <div className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
+              <p className="max-w-2xl text-sm leading-6 text-white/50">General Information is now source-linked. The same standard carries into maintenance as that content undergoes review.</p>
+              <Link className="inline-flex shrink-0 items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#e13e25] hover:text-white" href="/maintenance">
                 Go to maintenance
                 <Icon className="h-4 w-4" name="arrow-up-right" />
               </Link>
@@ -107,13 +115,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-labelledby="principle-title" className="bg-[#f6f6f4] py-16 sm:py-20 lg:py-24">
+        <section aria-labelledby="principle-title" className="bg-[#050505] py-16 sm:py-20 lg:py-24">
           <div className="mx-auto grid w-full max-w-[1280px] gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end lg:px-10">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d73b23]">The guide principle</p>
-              <h2 id="principle-title" className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-4xl">No substitutions, no guesswork—only source-linked information that earns a place in your routine.</h2>
+              <h2 id="principle-title" className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">No substitutions, no guesswork - only source-linked information that earns a place in your routine.</h2>
             </div>
-            <p className="max-w-xs text-sm leading-6 text-slate-500">{guideContent.manual.sourcePolicy}</p>
+            <p className="max-w-xs text-sm leading-6 text-white/45">{guideContent.manual.sourcePolicy}</p>
           </div>
         </section>
       </main>
