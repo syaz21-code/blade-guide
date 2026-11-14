@@ -1,5 +1,5 @@
 import { useFrame, type ThreeEvent } from "@react-three/fiber";
-import { useRef, type ReactNode } from "react";
+import { useMemo, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 
 import {
@@ -80,13 +80,14 @@ function SelectableAssembly({
   const selected = selectedId === id;
   const highlighted = selected || highlightedIds.includes(id);
   const component = blade250ComponentById[id];
+  const explodedTarget = useMemo(() => new THREE.Vector3(...component.explodedOffset), [component]);
 
   useFrame((_, delta) => {
     if (!group.current) {
       return;
     }
 
-    const target = exploded ? component.explodedOffset : noOffset;
+    const target = exploded ? explodedTarget : noOffset;
     const amount = 1 - Math.exp(-delta * 5.5);
     group.current.position.lerp(target, amount);
   });

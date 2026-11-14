@@ -13,7 +13,7 @@ export default function SafetyPage() {
       <div className="mx-auto w-full max-w-[1280px] px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
         <section aria-labelledby="signal-title">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Read the signals</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Read the signals</p>
             <h2 id="signal-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Different signals, different stakes.</h2>
           </div>
           <div className="mt-8 grid gap-3 lg:grid-cols-3">
@@ -28,7 +28,7 @@ export default function SafetyPage() {
             <section aria-labelledby={`${section.id}-title`} className="border-t border-white/10 pt-8 sm:pt-10" key={section.id}>
               <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Service safety</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Service safety</p>
                   <h2 id={`${section.id}-title`} className="mt-3 text-2xl font-semibold tracking-[-0.045em] text-white sm:text-3xl">{section.title}</h2>
                 </div>
                 <p className="text-xs font-medium uppercase tracking-[0.12em] text-white/35">{section.entries.length} source-linked notes</p>

@@ -8,16 +8,16 @@ type SafetyCalloutProps = {
 };
 
 const appearance = {
-  warning: { label: "Warning", className: "border-[#ef604d]/35 bg-[#ef604d]/[0.09] text-[#ff9383]" },
-  caution: { label: "Caution", className: "border-[#e7a740]/35 bg-[#e7a740]/[0.09] text-[#f6c873]" },
-  note: { label: "Note", className: "border-[#70a5d9]/35 bg-[#70a5d9]/[0.09] text-[#a8cdf4]" },
+  warning: { label: "Warning", className: "border-[#df8179]/70 text-[#f1a29a]" },
+  caution: { label: "Caution", className: "border-[#dbb46c]/70 text-[#e9c783]" },
+  note: { label: "Note", className: "border-[#8fbdf2]/70 text-[#aacdf5]" },
 } as const;
 
 export function SafetyCallout({ entry }: SafetyCalloutProps) {
   const signal = appearance[entry.level];
 
   return (
-    <article className={`rounded-2xl border p-5 sm:p-6 ${signal.className}`}>
+    <article className={`border-l-2 bg-[var(--surface)] p-5 sm:p-6 ${signal.className}`}>
       <div className="flex items-start gap-3">
         <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-current/25 bg-black/10">
           <Icon className="h-4 w-4" name={entry.level === "note" ? "info" : "alert"} />

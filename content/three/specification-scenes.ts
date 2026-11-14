@@ -42,7 +42,7 @@ export const specificationScenes: SpecificationScene[] = [
     id: "overview",
     number: "01",
     eyebrow: "General information / 01",
-    title: "Blade 250",
+    title: "BLADE 250",
     description: "A source-linked Comet 250 reference profile presented as the Blade 250 visual guide. Explore the major systems as the motorcycle stays in view.",
     entries: selectEntries("Type", "Piston displacement", "Transmission"),
     componentIds: ["fuel-tank", "engine", "frame"],

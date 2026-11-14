@@ -19,12 +19,12 @@ export function MaintenanceTopicPage({ topicId }: MaintenanceTopicPageProps) {
       <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10">
         <section aria-labelledby="overview-title" className="grid gap-8 border-b border-white/10 py-12 sm:py-16 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Maintenance overview</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Maintenance overview</p>
             <h2 id="overview-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">The source-linked essentials.</h2>
             <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">{topic.whyImportant}</p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#ff8c7a]">Maintenance interval</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--accent)]">Maintenance interval</p>
             <p className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white">{topic.interval.label}</p>
             <ManualReference reference={topic.interval.source} />
           </div>
@@ -33,7 +33,7 @@ export function MaintenanceTopicPage({ topicId }: MaintenanceTopicPageProps) {
         <section aria-labelledby="tools-title" className="border-b border-white/10 py-12 sm:py-16">
           <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Preparation</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Preparation</p>
               <h2 id="tools-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Tools and materials.</h2>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -52,7 +52,7 @@ export function MaintenanceTopicPage({ topicId }: MaintenanceTopicPageProps) {
         <section aria-labelledby="specifications-title" className="border-b border-white/10 py-12 sm:py-16">
           <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Technical data</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Technical data</p>
               <h2 id="specifications-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Specifications at a glance.</h2>
             </div>
             <div className="grid gap-3">
@@ -65,11 +65,11 @@ export function MaintenanceTopicPage({ topicId }: MaintenanceTopicPageProps) {
         </section>
 
         <section aria-labelledby="procedure-title" className="py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Service procedure</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Service procedure</p>
           <h2 id="procedure-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Follow the original sequence.</h2>
           <div className="mt-8 grid gap-4">
             {topic.instructions.map((instruction, instructionIndex) => (
-              <article className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-7" key={instruction.title}>
+              <article className="border-t border-white/10 py-7 sm:py-9" key={instruction.title}>
                 <div className="grid gap-6 lg:grid-cols-[0.46fr_1fr] lg:gap-10">
                   <div>
                     <p className="text-xs font-semibold tracking-[0.14em] text-white/35">STEP {String(instructionIndex + 1).padStart(2, "0")}</p>
@@ -87,12 +87,12 @@ export function MaintenanceTopicPage({ topicId }: MaintenanceTopicPageProps) {
                       ))}
                     </ol>
                     <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-xl border border-white/10 bg-black/15 p-4">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#ff8c7a]">Technical specifications</p>
+                      <div className="border-l border-white/15 bg-[var(--surface)] p-4">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[var(--accent)]">Technical specifications</p>
                         <ul className="mt-3 space-y-2 text-sm leading-6 text-white/70">{instruction.technicalSpecifications.map((specification) => <li key={specification}>{specification}</li>)}</ul>
                       </div>
-                      <div className="rounded-xl border border-[#ef604d]/25 bg-[#ef604d]/[0.07] p-4">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#ff9383]">Safety precautions</p>
+                      <div className="border-l-2 border-[#dbb46c] bg-[var(--surface)] p-4">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#e9c783]">Safety precautions</p>
                         <ul className="mt-3 space-y-2 text-sm leading-6 text-white/70">{instruction.safetyPrecautions.map((precaution) => <li key={precaution}>{precaution}</li>)}</ul>
                       </div>
                     </div>
@@ -106,7 +106,7 @@ export function MaintenanceTopicPage({ topicId }: MaintenanceTopicPageProps) {
         <MaintenanceDemoPlaceholder demo={topic.demo} />
 
         <section aria-labelledby="related-title" className="border-t border-white/10 py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Related maintenance</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Related maintenance</p>
           <h2 id="related-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Continue through the system.</h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {relatedTopics.map((relatedTopic) => (

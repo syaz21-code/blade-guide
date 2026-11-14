@@ -9,7 +9,7 @@ export function MaintenanceDemoPlaceholder({ demo }: MaintenanceDemoPlaceholderP
     <section aria-labelledby="future-demo-title" className="border-t border-white/10 py-12 sm:py-16">
       <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end lg:gap-14">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Future 3D demonstration</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Future 3D demonstration</p>
           <h2 id="future-demo-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">Ready for the verified asset.</h2>
           <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">This model-free surface accepts an identified component, a camera preset, and a step sequence. It does not simulate mechanical work or show a fictional motorcycle.</p>
         </div>
@@ -20,7 +20,7 @@ export function MaintenanceDemoPlaceholder({ demo }: MaintenanceDemoPlaceholderP
             <span>Camera: {demo.cameraPreset}</span>
           </div>
           <div className="relative mt-20 rounded-2xl border border-dashed border-white/15 bg-black/20 p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.13em] text-[#ff8c7a]">Component: {demo.componentId}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.13em] text-[var(--accent)]">Component: {demo.componentId}</p>
             <ol className="mt-5 grid gap-2 sm:grid-cols-2">
               {demo.stepLabels.map((step, index) => (
                 <li className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2.5 text-sm text-white/65" key={step}>

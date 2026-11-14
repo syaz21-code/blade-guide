@@ -13,8 +13,8 @@ import { blade250ComponentById, type MotorcycleComponentId } from "@/content/thr
 import { specificationScenes } from "@/content/three/specification-scenes";
 
 const displayFont = {
-  fontFamily: '"Arial Narrow", "Roboto Condensed", "Helvetica Neue Condensed", sans-serif',
-  fontStretch: "condensed",
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  fontOpticalSizing: "auto" as const,
 };
 
 type ScrollCameraControllerProps = {
@@ -75,12 +75,12 @@ function SpecificationEntryList({ entryCount, sceneId }: { entryCount: number; s
   }
 
   return (
-    <dl className={`mt-7 grid gap-x-8 border-t border-white/15 pt-4 ${entryCount > 4 ? "grid-cols-2" : "grid-cols-1"}`}>
+    <dl className={`mt-7 grid gap-3 lg:relative lg:left-[30px] lg:w-[calc(100%-30px)] ${entryCount > 4 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
       {scene.entries.map((entry) => (
-        <div className="border-b border-white/10 py-3" key={entry.title}>
-          <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9297a3]">{entry.title}</dt>
-          <dd className="mt-1.5 text-sm font-medium leading-5 text-[#f5f5f5]">{entry.specification}</dd>
-          <p className="mt-1 text-[10px] leading-4 text-[#9297a3]">Manual p. {entry.manualPage}</p>
+        <div className="spec-glass rounded-xl border border-white/10 px-4 py-3" key={entry.title}>
+          <dt className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#c2cbd8]">{entry.title}</dt>
+          <dd className="mt-1.5 text-[17px] font-medium leading-6 text-[#f5f5f5]">{entry.specification}</dd>
+          <p className="mt-1 text-[13px] leading-5 text-[#c2cbd8]">Manual p. {entry.manualPage}</p>
         </div>
       ))}
     </dl>
@@ -91,34 +91,34 @@ function HeroQuickSpecifications() {
   const overviewScene = specificationScenes[0];
 
   return (
-    <aside className="border-y border-white/15 py-4 lg:max-w-[235px] lg:border-l lg:border-r lg:px-5" aria-label="Quick specifications">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9297a3]">Quick specifications</p>
-      <dl className="mt-3 divide-y divide-white/10">
+    <aside className="w-full rounded-2xl border border-white/15 bg-[#080d18]/30 p-5 backdrop-blur-md lg:relative lg:left-[30px] lg:max-w-[300px]" aria-label="Quick specifications">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[#c2cbd8]">Quick specifications</p>
+      <dl className="mt-4 grid gap-2">
         {overviewScene.entries.map((entry) => (
-          <div className="py-3" key={entry.title}>
-            <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9297a3]">{entry.title}</dt>
-            <dd className="mt-1 text-sm font-medium leading-5 text-[#f5f5f5]">{entry.specification}</dd>
+          <div className="spec-glass rounded-xl border border-white/10 px-4 py-3" key={entry.title}>
+            <dt className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#c2cbd8]">{entry.title}</dt>
+            <dd className="mt-1 text-[17px] font-medium leading-6 text-[#f5f5f5]">{entry.specification}</dd>
           </div>
         ))}
       </dl>
-      <p className="mt-3 text-[10px] leading-4 text-[#9297a3]">Maximum power is not included because it is not documented in the supplied source table.</p>
+      <p className="mt-4 text-[13px] leading-5 text-[#c2cbd8]">Maximum power is not included because it is not documented in the supplied source table.</p>
     </aside>
   );
 }
 
-function ScenePanel({ sceneIndex, activeIndex, onExplore, onReturnHome }: { sceneIndex: number; activeIndex: number; onExplore: () => void; onReturnHome: () => void }) {
+function ScenePanel({ sceneIndex, activeIndex, animated, onExplore, onReturnHome }: { sceneIndex: number; activeIndex: number; animated: boolean; onExplore: () => void; onReturnHome: () => void }) {
   const scene = specificationScenes[sceneIndex];
   const isActive = sceneIndex === activeIndex;
   const offsetClass = scene.alignment === "right" ? "lg:ml-auto" : "lg:mr-auto";
-  const transitionClass = isActive ? "translate-y-0 opacity-100" : "lg:pointer-events-none lg:translate-y-5 lg:opacity-0";
+  const transitionClass = !animated || isActive ? "translate-y-0 opacity-100" : "lg:pointer-events-none lg:translate-y-5 lg:opacity-0";
 
   if (scene.id === "overview") {
     return (
       <div className={`pointer-events-auto w-full transition-[opacity,transform] duration-500 ${transitionClass}`}>
-        <div className="grid items-end gap-8 lg:grid-cols-[minmax(240px,0.9fr)_minmax(0,1.1fr)_235px] lg:gap-10">
+        <div className="grid items-end gap-8 lg:grid-cols-[minmax(240px,0.9fr)_minmax(0,1.1fr)_300px] lg:gap-10">
           <div className="max-w-md">
             <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-[#9297a3]">{scene.eyebrow}</p>
-            <h1 className="mt-5 text-[clamp(4rem,10vw,9.5rem)] font-black italic uppercase leading-[0.74] tracking-[-0.09em] text-[#f5f5f5]" style={displayFont}>
+            <h1 className="mt-5 text-[clamp(4rem,8vw,8rem)] font-semibold leading-[0.95] tracking-[-0.065em] text-[#f5f5f5]" style={displayFont}>
               Blade<br />250
             </h1>
             <p className="mt-7 max-w-sm text-sm leading-6 text-[#9297a3] sm:text-base">{scene.description}</p>
@@ -140,12 +140,12 @@ function ScenePanel({ sceneIndex, activeIndex, onExplore, onReturnHome }: { scen
   return (
     <div className={`pointer-events-auto w-full max-w-xl transition-[opacity,transform] duration-500 ${offsetClass} ${transitionClass}`}>
       <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#b9d5ff]">{scene.number} / 07 · {scene.eyebrow}</p>
-      <h2 className="mt-4 text-5xl font-black italic uppercase leading-[0.86] tracking-[-0.065em] text-[#f5f5f5] sm:text-6xl" style={displayFont}>{scene.title}</h2>
+      <h2 className="mt-4 text-5xl font-semibold leading-[1.02] tracking-[-0.055em] text-[#f5f5f5] sm:text-6xl" style={displayFont}>{scene.title}</h2>
       <p className="mt-5 max-w-lg text-sm leading-6 text-[#9297a3] sm:text-base">{scene.description}</p>
       <SpecificationEntryList entryCount={scene.entries.length} sceneId={scene.id} />
       {scene.id === "dimensions" ? (
         <div className="mt-7 flex flex-wrap items-center gap-4">
-          <Link className="inline-flex rounded-full bg-[#f5f5f5] px-4 py-2.5 text-xs font-semibold text-[#0d1018] transition-transform hover:-translate-y-0.5" href="/maintenance">
+          <Link className="inline-flex rounded-full bg-[#f5f5f5] px-4 py-2.5 text-xs font-semibold text-[#080d18] transition-transform hover:-translate-y-0.5" href="/maintenance">
             Continue to maintenance
           </Link>
           <button className="text-xs font-semibold uppercase tracking-[0.16em] text-[#b9d5ff] transition-colors hover:text-white" onClick={onReturnHome} type="button">
@@ -213,19 +213,33 @@ export function SpecificationsStory() {
       gsap.to(driver, {
         ease: "none",
         value: specificationScenes.length - 1,
+        onUpdate: () => setSceneProgress(driver.value),
         scrollTrigger: {
           end: "bottom bottom",
           invalidateOnRefresh: true,
           scrub: 0.35,
           start: "top top",
           trigger: storyElement,
-          onUpdate: () => setSceneProgress(driver.value),
         },
       });
     }, storyElement);
 
     return () => context.revert();
   }, [isDesktop, reducedMotion]);
+
+  useEffect(() => {
+    if (!reducedMotion) return;
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const index = sceneRefs.current.indexOf(entry.target as HTMLElement);
+          if (index >= 0) setSceneProgress(index);
+        }
+      }
+    }, { rootMargin: "-30% 0px -50% 0px" });
+    sceneRefs.current.forEach((scene) => { if (scene) observer.observe(scene); });
+    return () => observer.disconnect();
+  }, [reducedMotion]);
 
   const scrollToScene = (index: number) => {
     setSceneProgress(index);
@@ -235,13 +249,13 @@ export function SpecificationsStory() {
   const highlightedIds = useMemo(() => activeScene.componentIds, [activeScene]);
 
   return (
-    <section ref={storyRef} className="relative overflow-clip bg-[#0d1018] text-[#f5f5f5]" aria-label="Blade 250 scroll-driven specifications">
-      <div ref={stageRef} className="relative h-[62svh] overflow-hidden bg-[#0d1018] lg:h-svh">
+    <section ref={storyRef} className="relative overflow-clip bg-[#080d18] text-[#f5f5f5]" aria-label="Blade 250 scroll-driven specifications">
+      <div ref={stageRef} className="relative h-[62svh] overflow-hidden bg-[#080d18] lg:h-svh">
         <Canvas camera={{ fov: 38, position: specificationScenes[0].camera.position }} dpr={[1, 1.65]} gl={{ antialias: true }} onPointerMissed={() => setSelectedId(null)} shadows>
-          <color attach="background" args={["#0d1018"]} />
-          <fog attach="fog" args={["#0d1018", 7, 15]} />
+          <color attach="background" args={["#080d18"]} />
+          <fog attach="fog" args={["#080d18", 7, 15]} />
           <ambientLight intensity={1.12} />
-          <hemisphereLight args={["#dcecff", "#0d1018", 1.5]} />
+          <hemisphereLight args={["#dcecff", "#080d18", 1.5]} />
           <directionalLight castShadow color="#f5f5f5" intensity={2.35} position={[4.5, 5.6, 4.4]} shadow-mapSize-height={1024} shadow-mapSize-width={1024} />
           <pointLight color="#78aee8" distance={8} intensity={1.4} position={[-3, 3, 2]} />
           <ScrollCameraController modelRef={modelRef} reducedMotion={reducedMotion} sceneProgress={sceneProgress} />
@@ -254,16 +268,21 @@ export function SpecificationsStory() {
         <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-1/2 hidden -translate-y-1/2 overflow-hidden whitespace-nowrap text-center text-[clamp(7rem,19vw,22rem)] font-black italic leading-none tracking-[-0.12em] text-white/[0.035] lg:block" style={displayFont}>
           BLADE 250
         </div>
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0d1018]/60 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0d1018]/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#080d18]/60 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#080d18]/70 to-transparent" />
 
         <div className="pointer-events-none absolute left-5 top-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#9297a3] sm:left-8 sm:top-7 lg:left-10">
           Live visual reference
         </div>
         {selectedComponent ? (
-          <div className="pointer-events-none absolute bottom-5 left-5 max-w-xs border-l border-[#b9d5ff] pl-3 sm:left-8 sm:bottom-7 lg:left-10">
+          <div className="site-glass absolute bottom-5 left-5 z-30 max-w-xs rounded-2xl border border-white/10 bg-[#0d1523]/95 p-4 shadow-xl backdrop-blur-xl sm:left-8 sm:bottom-7 lg:left-10">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#b9d5ff]">Selected component</p>
             <p className="mt-1 text-sm font-semibold text-white">{selectedComponent.label}</p>
+            <p className="mt-2 text-xs leading-5 text-white/70">{selectedComponent.description}</p>
+            <div className="mt-3 flex items-center gap-4 text-xs font-semibold">
+              <Link className="text-[#b9d5ff] hover:text-white" href={selectedComponent.relatedHref}>{selectedComponent.relatedLabel} →</Link>
+              <button className="text-white/60 hover:text-white" onClick={() => setSelectedId(null)} type="button">Close</button>
+            </div>
           </div>
         ) : null}
 
@@ -288,7 +307,7 @@ export function SpecificationsStory() {
         </nav>
       </div>
 
-      <div className="relative z-10 lg:-mt-[100svh]">
+      <div className={`relative z-10 ${reducedMotion ? "" : "lg:-mt-[100svh]"}`}>
         {specificationScenes.map((scene, index) => (
           <article
             aria-current={index === activeSceneIndex ? "step" : undefined}
@@ -300,7 +319,7 @@ export function SpecificationsStory() {
             }}
           >
             <div className="mx-auto w-full max-w-[1360px]">
-              <ScenePanel activeIndex={activeSceneIndex} onExplore={() => scrollToScene(1)} onReturnHome={() => scrollToScene(0)} sceneIndex={index} />
+              <ScenePanel activeIndex={activeSceneIndex} animated={isDesktop && !reducedMotion} onExplore={() => scrollToScene(1)} onReturnHome={() => scrollToScene(0)} sceneIndex={index} />
             </div>
           </article>
         ))}

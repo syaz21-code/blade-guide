@@ -11,7 +11,7 @@ export function SpecificationTable({ group }: SpecificationTableProps) {
     <section aria-labelledby={`${group.id}-title`} className="scroll-mt-28 border-t border-white/10 py-12 sm:py-16">
       <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-14">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#ff725c]">Reference group</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">Reference group</p>
           <h2 id={`${group.id}-title`} className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">{group.title}</h2>
           <p className="mt-4 max-w-sm text-sm leading-6 text-white/50">{group.description}</p>
         </div>
